@@ -26,6 +26,7 @@ import java.lang.management.MemoryMXBean;
 import java.lang.management.OperatingSystemMXBean;
 import java.lang.management.RuntimeMXBean;
 import java.lang.reflect.InvocationTargetException;
+import java.util.logging.Logger;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -37,11 +38,17 @@ import org.apache.commons.beanutils.BeanUtils;
 @Path("env")
 public class EnvMonitorService {
 	
+	Logger logger = Logger.getLogger(EnvMonitorService.class.getName());
+
+//			private static Logger logger = LoggerFactory.getLogger(ZkUtils.class);
+			
 	@GET
     @Path("monitor")
     @Produces({ MediaType.APPLICATION_JSON })
     public EnvironmentConfig getEnvConfig() throws IllegalAccessException, InvocationTargetException 
     {
+		logger.info("received a request...");
+		
         int mb = 1024*1024;
         //Getting the runtime reference from system
         Runtime runtime = Runtime.getRuntime();
