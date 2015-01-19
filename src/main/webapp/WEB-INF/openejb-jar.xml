@@ -3,7 +3,7 @@
   <pojo-deployment class-name="it.damore.tomee.envmonitor.application.TomeeJvmEnvApplication">
     <properties>
       cxf.jaxrs.providers = json
-      # cxf.jaxrs.static-resources-list = /favicon.ico
+      cxf.jaxrs.static-resources-list = /favicon.ico
     </properties>
   </pojo-deployment>
 </openejb-jar>
